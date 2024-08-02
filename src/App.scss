@@ -1,0 +1,5 @@
+@import "./scss/libs/normalize";
+@import "/src/scss/_variables";
+body {
+  background-color: $background;
+}
