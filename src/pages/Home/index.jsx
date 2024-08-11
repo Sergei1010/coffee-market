@@ -14,7 +14,6 @@ import {
   setPage,
 } from "../../redux/slices/filterSlice";
 import Pagination from "../../components/Pagination";
-import { cartSelector } from "../../redux/slices/cartSlice";
 import Skeleton from "../../components/CardProduct/Skeleton";
 
 const Home = () => {
@@ -46,7 +45,7 @@ const Home = () => {
   useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
-      if (params.category) delete params.category;
+      if (params.category === "0") delete params.category;
       dispatch(setFilters(params));
       isSearch.current = true;
     }
