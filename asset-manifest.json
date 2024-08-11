@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/coffee-market/static/css/main.9146cedf.css",
+    "main.js": "/coffee-market/static/js/main.1464d225.js",
+    "static/js/453.b4005e06.chunk.js": "/coffee-market/static/js/453.b4005e06.chunk.js",
+    "static/media/Logo.png": "/coffee-market/static/media/Logo.c7a613545fa643e00f4b.png",
+    "static/media/EmptyCart.png": "/coffee-market/static/media/EmptyCart.5c68d3b4134165fbeab8.png",
+    "static/media/CartIcon.svg": "/coffee-market/static/media/CartIcon.aef56ebee1b6b6dc88d2455515c32229.svg",
+    "static/media/Trash.svg": "/coffee-market/static/media/Trash.2a9a18959f72d075ef3d206a8a170181.svg",
+    "static/media/CartItemButton.svg": "/coffee-market/static/media/CartItemButton.106811e9e8fcc1a2ce452f2ec96a8ba8.svg",
+    "static/media/SearchIcon.svg": "/coffee-market/static/media/SearchIcon.88b68054a1dc6c8f9a9eceefcee5020b.svg",
+    "index.html": "/coffee-market/index.html",
+    "static/media/AddIcon.svg": "/coffee-market/static/media/AddIcon.477ce4b46c2d34c3b05d419c276b6a20.svg",
+    "static/media/ArrowTop.svg": "/coffee-market/static/media/ArrowTop.abc3c9320f7e2c039bb57acdb72ea91e.svg",
+    "static/media/Cross.svg": "/coffee-market/static/media/Cross.d4f81b2a621e00b53218b3772562343d.svg",
+    "static/media/ArrowLeft.svg": "/coffee-market/static/media/ArrowLeft.38ccd5de0b7782ae6b5f21467318aa15.svg",
+    "main.9146cedf.css.map": "/coffee-market/static/css/main.9146cedf.css.map",
+    "main.1464d225.js.map": "/coffee-market/static/js/main.1464d225.js.map",
+    "453.b4005e06.chunk.js.map": "/coffee-market/static/js/453.b4005e06.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9146cedf.css",
+    "static/js/main.1464d225.js"
+  ]
+}
