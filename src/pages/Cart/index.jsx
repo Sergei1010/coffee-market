@@ -11,6 +11,8 @@ const Cart = () => {
   const { totalPrice, totalCount, items } = useSelector(cartSelector);
   const dispatch = useDispatch();
 
+  console.log(items);
+
   if (!totalPrice) return <EmptyCart />;
 
   return (

@@ -7,14 +7,15 @@ import {
   removeProduct,
 } from "../../redux/slices/cartSlice";
 
-const ItemCart = ({ cartId, name, type, weight, price, count }) => {
+const ItemCart = ({ cartId, imageUrl, name, type, weight, price, count }) => {
   const dispatch = useDispatch();
   const totalPrice = price * count;
+  console.log(imageUrl);
 
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <img src="img/items/1.jpg" alt="" />
+        <img src={imageUrl} alt="" />
       </div>
       <div className={styles.info}>
         <h3>{name}</h3>

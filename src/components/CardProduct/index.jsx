@@ -45,6 +45,7 @@ const CardProduct = ({ id, imageUrl, name, types, weight, price }) => {
     const cartId = id + activeType + activeWeight;
     const item = {
       id,
+      imageUrl,
       cartId,
       name,
       type: typeValue[activeType].name,
