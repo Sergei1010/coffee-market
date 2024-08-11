@@ -1,14 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Search from "../Search";
 import { ReactComponent as CartIcon } from "../../assets/img/CartIcon.svg";
 import logoCoffee from "../../assets/img/Logo.png";
 import styles from "./Header.module.scss";
+import { useSelector } from "react-redux";
+import { cartSelector } from "../../redux/slices/cartSlice";
+import { useEffect, useRef } from "react";
 
 const Header = () => {
+  const { items, totalPrice, totalCount } = useSelector(cartSelector);
+  const location = useLocation();
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem("cart", json);
+    }
+    isMounted.current = true;
+  }, [items]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <Link>
+        <Link to="/">
           <div className={styles.logo}>
             <img src={logoCoffee} alt="logo" />
             <div>
@@ -17,15 +32,17 @@ const Header = () => {
             </div>
           </div>
         </Link>
-        <Search />
+        {location.pathname === "/" && <Search />}
 
         <div className={styles.cart}>
-          <Link className={styles.button}>
-            <span>1200 грн</span>
-            <div className={styles.delimiter}></div>
-            <CartIcon className={styles.icon} />
-            <span>3</span>
-          </Link>
+          {location.pathname !== "/cart.html" && (
+            <Link to="/cart.html" className={styles.button}>
+              <span>{totalPrice} грн</span>
+              <div className={styles.delimiter}></div>
+              <CartIcon className={styles.icon} />
+              <span>{totalCount}</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>

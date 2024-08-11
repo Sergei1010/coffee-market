@@ -85,43 +85,6 @@
         justify-content: space-between;
         margin-top: 40px;
 
-        .back {
-          @include button;
-          @include outline;
-          @include add;
-          display: flex;
-          align-items: center;
-          justify-content: cemter;
-          width: 210px;
-          border-color: darken($color: $grey, $amount: 10);
-          span {
-            color: darken($color: $grey, $amount: 20);
-            font-weight: 500;
-          }
-          &:hover {
-            background-color: darken($color: $black, $amount: 90);
-            border-color: darken($color: $black, $amount: 90);
-
-            svg {
-              path {
-                fill: transparent;
-              }
-            }
-
-            span {
-              color: #fff;
-            }
-          }
-
-          svg {
-            margin-right: 12px;
-            path {
-              fill: transparent;
-              stroke-width: 2;
-            }
-          }
-        }
-
         .pay {
           @include button;
           font-size: 16px;

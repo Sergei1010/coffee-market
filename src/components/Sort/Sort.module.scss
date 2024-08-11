@@ -5,6 +5,7 @@
   .label {
     display: flex;
     align-items: center;
+    width: 295px;
 
     svg {
       margin-right: 8px;
@@ -17,6 +18,7 @@
     span {
       color: $coffee;
       border-bottom: 1px dashed $coffee;
+      cursor: pointer;
     }
   }
 
@@ -46,5 +48,6 @@
 }
 
 .active {
+  font-weight: bold;
   background: rgba(79, 17, 150, 0.1);
 }

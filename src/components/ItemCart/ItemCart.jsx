@@ -1,29 +1,49 @@
 import styles from "./ItemCart.module.scss";
 import { ReactComponent as CartItemButton } from "../../assets/img/CartItemButton.svg";
+import { useDispatch } from "react-redux";
+import {
+  increaseProduct,
+  reduceProduct,
+  removeProduct,
+} from "../../redux/slices/cartSlice";
 
-const ItemCart = () => {
+const ItemCart = ({ cartId, name, type, weight, price, count }) => {
+  const dispatch = useDispatch();
+  const totalPrice = price * count;
+
   return (
     <div className={styles.container}>
       <div className={styles.image}>
         <img src="img/items/1.jpg" alt="" />
       </div>
       <div className={styles.info}>
-        <h3>Costa rica </h3>
-        <p>500г мелена</p>
+        <h3>{name}</h3>
+        <p>
+          {weight}г {type}
+        </p>
       </div>
       <div className={styles.count}>
-        <div className={styles.minus}>
+        <div
+          onClick={() => dispatch(reduceProduct(cartId))}
+          className={count > 1 ? styles.minus : styles.disable}
+        >
           <CartItemButton />
         </div>
-        <b>22</b>
-        <div className={styles.plus}>
+        <b>{count}</b>
+        <div
+          onClick={() => dispatch(increaseProduct(cartId))}
+          className={styles.plus}
+        >
           <CartItemButton />
         </div>
       </div>
       <div className={styles.price}>
-        <b>500 грн</b>
+        <b>{totalPrice} грн</b>
       </div>
-      <div className={styles.remove}>
+      <div
+        onClick={() => dispatch(removeProduct(cartId))}
+        className={styles.remove}
+      >
         <div className={styles.cross}>
           <CartItemButton />
         </div>

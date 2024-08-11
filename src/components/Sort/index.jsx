@@ -1,6 +1,8 @@
 import styles from "./Sort.module.scss";
 import { ReactComponent as ArrowTop } from "../../assets/img/ArrowTop.svg";
-import cn from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { filterSelector, setSort } from "../../redux/slices/filterSlice";
+import { useRef, useState, useEffect } from "react";
 
 const list = [
   { id: 1, name: "популярністю | asc", property: "rating", direction: "asc" },
@@ -11,29 +13,58 @@ const list = [
   { id: 6, name: "назвою | desc", property: "name", direction: "desc" },
 ];
 
-const active = true;
-
-const Popup = () => {
-  return (
-    <div className={styles.popup}>
-      <ul>
-        {list.map((item, i) => (
-          <li key={i}>{item.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
 const Sort = () => {
+  const dispatch = useDispatch();
+  const { sort } = useSelector(filterSelector);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const sortRef = useRef();
+
+  const selectSort = (item) => {
+    dispatch(setSort(item));
+    setShowPopup(!showPopup);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.composedPath().includes(sortRef.current)) {
+        setShowPopup(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => document.body.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const Popup = () => {
+    return (
+      <div className={styles.popup}>
+        <ul>
+          {list.map((item, i) => (
+            <li
+              key={i}
+              onClick={() => selectSort(item)}
+              className={item.id === sort.id ? styles.active : ""}
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.label}>
         <ArrowTop />
         <b>Сортування за:</b>
-        <span>популярністю</span>
+        <span ref={sortRef} onClick={() => setShowPopup(!showPopup)}>
+          {sort.name}
+        </span>
       </div>
-      <Popup />
+      {showPopup && <Popup />}
     </div>
   );
 };

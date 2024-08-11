@@ -1,0 +1,36 @@
+@import "../../scss/_variables";
+
+.container {
+  display: inline-flex;
+
+  li {
+    a {
+      display: inline-block;
+      margin: 0 5px;
+      color: $coffee;
+      width: 44px;
+      height: 44px;
+      padding: 16px;
+      border: solid 1px $coffee;
+      border-radius: 22px;
+      text-align: center;
+      line-height: 10px;
+      justify-content: center;
+      cursor: ponter;
+
+      &:hover {
+        background-color: $coffee;
+        color: #fff;
+      }
+    }
+  }
+
+  :global {
+    .selected {
+      a {
+        background-color: $coffee;
+        color: #fff;
+      }
+    }
+  }
+}

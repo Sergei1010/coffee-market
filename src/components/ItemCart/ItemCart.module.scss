@@ -120,3 +120,23 @@
     }
   }
 }
+
+.disable {
+  color: $grey;
+  border: 1px solid $grey;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+
+  svg {
+    position: relative;
+    top: 5px;
+    left: 10px;
+    path {
+      fill: $grey;
+      &:first-of-type {
+        display: none;
+      }
+    }
+  }
+}

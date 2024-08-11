@@ -1,7 +1,11 @@
+import styles from "./NotFoundBlock.module.scss";
+
 const NotFoundBlock = () => {
   return (
-    <div className="">
-      <h3>NotFound</h3>
+    <div className={styles.container}>
+      <h2>Помилка 404</h2>
+      <h3>Такої сторінки не існує</h3>
+      <p>Спробуйте ввести іншу адресу чи перейдіть на головну сторінку</p>
     </div>
   );
 };
